@@ -26,8 +26,20 @@ int main(void){
         }
         if(count==2 and a[one]==b[two] and a[two]==b[one]){
             cout << "True";
-        }else if(count){
-
+        }else if(count==0){ // 考量到相同的字串中有子母相同，互換的話也是True
+            int letter[128] = {0};
+            int ans = 0;
+            for(unsigned int i=0;i<a.length();i++){
+                letter[(char)a[i]]++;
+                if(letter[(char)a[i]]>1){
+                    cout << "True";
+                    ans = 1;
+                    break;
+                }
+            }
+            if(ans==0){
+                cout << "False";
+            }
         }else{
             cout << "False";
         }
